@@ -1,0 +1,15 @@
+{
+  "name": "hello-deploy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "一个用于学习 GitHub + Vercel 部署的极简前后端项目。",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "node --watch server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test"
+  }
+}

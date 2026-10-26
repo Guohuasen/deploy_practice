@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="一个小小的问候，跑通你的第一次前后端部署。" />
+    <title>你好，互联网 · 我的第一个全栈项目</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="回到首页"><span class="brand-icon" aria-hidden="true">h.</span> hello, deploy</a>
+        <span class="project-label">我的第一个全栈项目</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="title">
+          <span class="eyebrow">从本地，到世界</span>
+          <h1 id="title">你好，<span>互联网。</span></h1>
+          <p>每一个上线的项目，都从一次小小的连接开始。<br />写下你的名字，让服务器和你打个招呼。</p>
+        </section>
+
+        <div class="workspace">
+          <section class="form-panel" aria-labelledby="form-title">
+            <div class="panel-heading"><span class="step">01</span><span>发出你的第一条消息</span></div>
+            <h2 id="form-title">怎么称呼你？</h2>
+            <p class="muted">把名字交给后端，收到一份专属问候。</p>
+            <form id="hello-form">
+              <label for="name">你的名字</label>
+              <input id="name" name="name" type="text" placeholder="例如：小明" maxlength="50" autocomplete="given-name" required aria-describedby="name-hint" />
+              <p class="input-hint" id="name-hint">1～50 个字符，仅用于本次问候，不会保存。</p>
+              <button id="submit-button" type="submit"><span id="button-text">向服务器打招呼</span><span aria-hidden="true">↗</span></button>
+            </form>
+            <p id="form-error" class="error" role="alert" hidden></p>
+            <div class="connection" role="status"><span id="status-dot" class="status-dot"></span><span id="connection-status">正在连接后端…</span><button class="retry" id="retry-button" type="button" hidden>重试</button></div>
+          </section>
+
+          <section class="response-panel" aria-labelledby="response-title">
+            <div class="panel-heading"><span class="step">02</span><span>来自服务器的回信</span></div>
+            <div id="empty-state" class="empty-state"><span class="envelope" aria-hidden="true">↳</span><h2 id="response-title">问候即将抵达</h2><p>提交名字后，后端的回复<br />会出现在这里。</p></div>
+            <div id="result" class="result" role="status" hidden>
+              <span class="response-tag">成功收到回复 · HTTP 200</span>
+              <h2 id="greeting"></h2>
+              <dl><div><dt>服务器时间（北京时间）</dt><dd id="server-time"></dd></div><div><dt>运行位置</dt><dd id="environment"></dd></div></dl>
+            </div>
+          </section>
+        </div>
+
+        <section class="journey" aria-label="一次请求的旅程"><div><span class="journey-number">1</span><span>浏览器发出名字</span></div><span class="journey-arrow" aria-hidden="true">→</span><div><span class="journey-number">2</span><span>后端生成问候</span></div><span class="journey-arrow" aria-hidden="true">→</span><div><span class="journey-number">3</span><span>网页显示回复</span></div></section>
+
+        <details class="details" id="request-details">
+          <summary>看看前后端是怎样对话的 <span aria-hidden="true">＋</span></summary>
+          <div class="details-content"><p>浏览器把名字作为 JSON 数据提交到 <code>POST /api/hello</code>，服务器再返回 JSON。下面显示最近一次请求和响应。</p><div class="payloads"><div><h3>浏览器发送</h3><pre id="request-json">等待提交…</pre></div><div><h3>服务器返回</h3><pre id="response-json">等待回复…</pre></div></div></div>
+        </details>
+        <noscript><p class="error">请启用浏览器的 JavaScript，才能发送问候。</p></noscript>
+      </main>
+
+      <footer><span>一个名字，一次请求，一次新的开始。</span><span>HTML / CSS / JavaScript + Node.js</span></footer>
+    </div>
+  </body>
+</html>
